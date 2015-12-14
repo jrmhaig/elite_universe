@@ -26,9 +26,7 @@ module EliteUniverse
 
     private
     def twist arr
-      t = arr.clone
-      (t << ( ( arr[0] + arr[1] + arr[2] ) % 65536 ) ).shift
-      t
+      [ arr[1], arr[2], arr.inject(:+) % 65536 ]
     end
   end
 end
