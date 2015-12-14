@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = EliteUniverse::VERSION
   s.authors     = ["Joe Haig"]
   s.email       = ["joe.haig@bbc.co.uk"]
-  s.homepage    = "https://github.com/bbc/hive_mind_tv"
+  s.homepage    = "https://github.com/jrmhaig/elite_universe"
   s.summary     = "Elite Universe"
   s.description = "Implementation of the Acornsoft Elite planet generator algorithm."
   s.license     = "MIT"
