@@ -1,2 +1,34 @@
-# elite_universe
-Generate planets and galaxies following the Acornsoft Elite planet generation algorithm
+# Elite Universe
+
+Generate planets and galaxies following the Acornsoft Elite planet generation
+algorithm.
+
+## Usage
+
+```ruby
+require 'elite_universe/planet'
+
+planet = EliteUniverse::Planet.new(44344, 5276, 5405)
+planet.name                      # = Lave
+```
+
+```ruby
+require 'elite_universe/galaxy'
+
+galaxy1 = EliteUniverse::Galaxy.new(23114, 584, 46931)
+galaxy1.planets                  # = array of 'EliteUniverse::Planet's
+galaxy1.planets[129].name        # = Zaonce
+```
+
+## License
+
+The Elite Universe gem is available to everyone under the terms of the MIT
+open source license.
+Take a look at the LICENSE file in the code.
+
+## Copyright
+
+The Elite planet generation algorithm is copyright (c) 1984 of David Braben and
+Ian Bell.
+
+This ruby implementation is copyright (c) 2015 BBC
