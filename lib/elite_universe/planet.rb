@@ -12,6 +12,17 @@ module EliteUniverse
       'Corporate',
     ]
 
+    ECONS = [
+      'Rich Industrial',
+      'Average Industrial',
+      'Poor Industrial',
+      'Mainly Industrial',
+      'Mainly Agricultural',
+      'Rich Agricultural',
+      'Average Agricultural',
+      'Poor Agricultural',
+    ]
+
     def initialize a, b, c
       @w = [ a, b, c ]
     end
@@ -31,7 +42,11 @@ module EliteUniverse
     end
 
     def government
-      GOVS[(@w[1] >> 3 ) & 7]
+      GOVS[ gov_n ]
+    end
+
+    def economy
+      ECONS[ econ_n ]
     end
 
     def next
@@ -41,6 +56,15 @@ module EliteUniverse
     private
     def twist arr
       [ arr[1], arr[2], arr.inject(:+) % 65536 ]
+    end
+
+    def gov_n
+      ( @w[1] >> 3 ) & 7
+    end
+
+    def econ_n
+      e = ( @w[0] >> 8 ) & 7
+      gov_n <= 1 ? e | 2 : e
     end
   end
 end
