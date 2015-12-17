@@ -49,6 +49,10 @@ module EliteUniverse
       ECONS[ econ_n ]
     end
 
+    def location
+      [ @w[1] >> 8, @w[0] >> 8 ]
+    end
+
     def next
       EliteUniverse::Planet.new *(twist twist twist twist @w)
     end
