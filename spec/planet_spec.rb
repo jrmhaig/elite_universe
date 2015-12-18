@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'elite_universe/planet'
 
 describe EliteUniverse::Planet do
+  let(:tibedied) { EliteUniverse::Planet.new(23114, 584, 46931) }
   let(:lave) { EliteUniverse::Planet.new(44344, 5276, 5405) }
 
   describe '#name' do
@@ -139,8 +140,11 @@ describe EliteUniverse::Planet do
     end
 
     describe '#location' do
-
       it 'finds the correct location of a planet' do
+        expect(tibedied.location).to eq [ 2, 90 ]
+        expect(tibedied.next.location).to eq [ 152, 205 ]
+        expect(tibedied.next.next.location).to eq [ 77, 243 ]
+        expect(tibedied.next.next.next.location).to eq [ 83, 208 ]
         expect(lave.location).to eq [ 20, 173 ]
       end
     end
