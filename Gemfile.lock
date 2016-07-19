@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    elite_universe (0.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,4 +25,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  elite_universe!
   rspec (~> 3)
+
+BUNDLED WITH
+   1.10.6

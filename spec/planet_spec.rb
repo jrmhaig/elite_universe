@@ -149,4 +149,14 @@ describe EliteUniverse::Planet do
       end
     end
   end
+
+  describe '#technology' do
+    it 'finds that Lave has technology level 5' do
+      expect(lave.technology).to eq 5
+    end
+
+    it 'finds that Tibedied has technology level 9' do
+      expect(tibedied.technology).to eq 9
+    end
+  end
 end

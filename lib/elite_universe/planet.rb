@@ -53,6 +53,12 @@ module EliteUniverse
       [ @w[1] >> 8, @w[0] >> 8 ]
     end
 
+    def technology
+      t = ((@w[1] >> 8 ) & 3) + ( econ_n ^ 7 ) + (gov_n >> 1) + 1
+      t += 1 if ((gov_n & 1) == 1)
+      t
+    end
+
     def next
       EliteUniverse::Planet.new *(twist twist twist twist @w)
     end
