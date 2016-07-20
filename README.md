@@ -31,4 +31,4 @@ Take a look at the LICENSE file in the code.
 The Elite planet generation algorithm is copyright (c) 1984 of David Braben and
 Ian Bell.
 
-This ruby implementation is copyright (c) 2015 BBC
+This ruby implementation is copyright (c) 2015 Joe Haig
