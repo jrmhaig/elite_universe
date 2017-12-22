@@ -3,6 +3,8 @@
 Generate planets and galaxies following the Acornsoft Elite planet generation
 algorithm.
 
+[![Build Status](https://travis-ci.org/jrmhaig/elite_universe.svg?branch=master)](https://travis-ci.org/jrmhaig/elite_universe)
+
 ## Usage
 
 ```ruby
