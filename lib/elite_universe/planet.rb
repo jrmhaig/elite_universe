@@ -65,7 +65,7 @@ module EliteUniverse
 
     private
     def twist arr
-      [ arr[1], arr[2], arr.sum % 65536 ]
+      [ arr[1], arr[2], arr.inject(:+) % 65536 ]
     end
 
     def gov_n
