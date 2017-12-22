@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
 
   s.files = Dir['lib/**/*', 'LICENSE', 'README.md']
 
-  s.add_development_dependency 'rspec', '~> 3'
+  s.add_development_dependency 'rspec', '~> 3.7'
 end
