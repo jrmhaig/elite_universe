@@ -17,9 +17,16 @@ planet.name                      # = Lave
 ```ruby
 require 'elite_universe/galaxy'
 
-galaxy1 = EliteUniverse::Galaxy.new(23114, 584, 46931)
-galaxy1.planets                  # = array of 'EliteUniverse::Planet's
-galaxy1.planets[129].name        # = Zaonce
+galaxy = EliteUniverse::Galaxy.new(23114, 584, 46931)
+galaxy.planets                  # = array of 'EliteUniverse::Planet's
+galaxy.planets[129].name        # = Zaonce
+```
+
+`EliteUniverse::Galaxy` is an Enumerable class and so, for example, a full list
+of planet names in the galaxy can be generated with:
+
+```ruby
+galaxy.map(&:name)
 ```
 
 ## License
