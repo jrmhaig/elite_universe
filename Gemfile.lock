@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    elite_universe (0.0.4)
+    elite_universe (0.0.5)
 
 GEM
   remote: https://rubygems.org/
