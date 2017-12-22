@@ -26,7 +26,7 @@ PLATFORMS
 
 DEPENDENCIES
   elite_universe!
-  rspec (~> 3)
+  rspec (~> 3.7)
 
 BUNDLED WITH
    1.16.0
