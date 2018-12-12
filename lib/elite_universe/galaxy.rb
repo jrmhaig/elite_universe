@@ -5,17 +5,24 @@ module EliteUniverse
     include Enumerable
 
     def initialize a, b, c
-      @w = [a, b, c]
-    end
-
-    def planets
-      255.times.inject([EliteUniverse::Planet.new(*@w)]) do |p|
-        p << p[-1].next
-      end
+      @initial_planet = Planet.new(a, b, c)
     end
 
     def each &block
-      planets.each { |planet| block.call(planet) }
+      256.times.inject(@initial_planet) do |p|
+        block.call(p)
+        p.next
+      end
+    end
+
+    def planets
+      puts "DEPRECATED"
+      puts "In place of `galaxy.planets[n]` use `galaxy[n]`"
+      self.map { |p| p }
+    end
+
+    def [] n
+      n.times.inject(@initial_planet) { |p| p.next }
     end
   end
 end
