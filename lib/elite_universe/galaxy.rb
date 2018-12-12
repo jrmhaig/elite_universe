@@ -21,8 +21,10 @@ module EliteUniverse
       self.map { |p| p }
     end
 
-    def [] n
-      n.times.inject(@initial_planet) { |p| p.next }
+    def [] *args
+      255.times
+        .lazy
+        .inject([@initial_planet]) { |ps| ps + [ps[-1].next] }[*args]
     end
   end
 end
