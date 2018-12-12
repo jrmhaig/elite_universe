@@ -18,8 +18,7 @@ planet.name                      # = Lave
 require 'elite_universe/galaxy'
 
 galaxy = EliteUniverse::Galaxy.new(23114, 584, 46931)
-galaxy.planets                  # = array of 'EliteUniverse::Planet's
-galaxy.planets[129].name        # = Zaonce
+galaxy[129].name        # = Zaonce
 ```
 
 `EliteUniverse::Galaxy` is an Enumerable class and so, for example, a full list
@@ -28,6 +27,12 @@ of planet names in the galaxy can be generated with:
 ```ruby
 galaxy.map(&:name)
 ```
+
+## Deprecated methods
+
+`galaxy.planets` will return an array of all instances of
+`EliteUniverse::Planet` in an `EliteUniverse::Galaxy`. This is deprecated.
+Instead of `galaxy.planets[i]` use `galaxy[i]`.
 
 ## License
 
