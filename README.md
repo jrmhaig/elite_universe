@@ -46,6 +46,18 @@ Specifically, details of the galaxy generation can be found [here.](https://elit
 This would have been immensely useful several years ago when I was trying to
 hunt down scraps of this information from around the internet!
 
+## Descriptions (work in progress)
+
+The Goat Soup algorithm has been added to create planet descriptions as listed
+[here.](http://wiki.alioth.net/index.php/Classic_Elite_planet_descriptions)
+However, there appear to be difference between a few of the descriptions in the
+original game and those created by Ian Bell's
+[Text Elite,](http://www.elitehomepage.org/text/index.htm) from which most
+versions of the algorithm are derived. For example:
+
+* (Original BBC Micro) "The world Leleer is very noted for its pink Leleerian Itonthbi tulip plantations but plagued by deadly earthquakes."
+* (Text Elite) "The world Leleer is very noted for its pink Leleerian Itonthbi tulip plantations but plagued by a vicious disease."
+
 ## License
 
 The Elite Universe gem is available to everyone under the terms of the MIT

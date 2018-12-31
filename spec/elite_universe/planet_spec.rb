@@ -208,4 +208,52 @@ describe EliteUniverse::Planet do
       expect(tibedied.technology).to eq 9
     end
   end
+
+  describe '#description' do
+    let(:first) { EliteUniverse::Planet.new(23114, 584, 46931) }
+    let(:buggy) {
+      [
+        'Leleer', 'Orteve', 'Aanbiat', 'Tibecea', 'Gelegeus', 'Edreor',
+        'Beenri', 'Cetiisqu'
+      ]
+    }
+
+    it 'gets the descriptions of galaxy one planets correct' do
+      planet = first
+      File.read('spec/planet_descriptions.txt').split(/\n/).each do |line|
+        name, description = line.split(/:/)
+        expect(planet.description).to eq description unless buggy.include? name
+        planet = planet.next
+      end
+    end
+
+    it 'gets the correct definition for the first planet' do
+      expect(first.description)
+        .to eq 'This planet is most notable for Tibediedian Arnu brandy ' +
+          'but ravaged by unpredictable solar activity.'
+    end
+
+    it 'gets the correct definition for the second planet' do
+      expect(first.next.description)
+        .to eq 'Qube is reasonably well known for its great dense forests ' +
+          'but scourged by deadly civil war.'
+    end
+
+    it 'gets the correct definition for the third planet' do
+      skip 'Leleer description is wrong'
+      expect(first.next.next.description)
+        .to eq 'The world Leleer is very noted for its pink Leleerian ' +
+          'Itonthbi tulip plantations but plagued by deadly earthquakes.'
+    end
+
+    it 'gets the correct definition for Lave' do
+      expect(lave.description)
+        .to eq 'Lave is most famous for its vast rain forests and the Lavian tree grub.'
+    end
+
+    it 'gets the correct definition for Tibedied' do
+      expect(tibedied.description)
+        .to eq 'This planet is most notable for Tibediedian Arnu brandy but ravaged by unpredictable solar activity.'
+    end
+  end
 end
