@@ -3,9 +3,9 @@
 module EliteUniverse
   class Planet
 
-    PAIRS = '..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion'
-    CHARS = '..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion'.scan(/../)
-    EXTCHARS = 'abouseitiletstonlonuthno'.scan(/../) + CHARS
+    PAIRS = 'lexegezacebisousesarmaindirea?eratenberalavetiedorquanteisrion'
+    CHARS = ['..'] + PAIRS.scan(/../)
+    EXTCHARS = ('abouseitiletstonlonuthnoal' + PAIRS).scan(/../)
 
     GOVS = %w[
       Anarchy
@@ -76,7 +76,7 @@ module EliteUniverse
     def name
       (@w[0].nobits?(64) ? 2 : 3).times.inject([@w]) { |vs, _| vs << twist(vs[-1]) }
                                  .inject('') { |name, v| name + CHARS[(v[2] >> 8) & 31] }
-                                 .tr('.', '').capitalize
+                                 .gsub(/[\.\?]/, '').capitalize
     end
 
     def government = GOVS[gov_n]
@@ -144,6 +144,7 @@ module EliteUniverse
             #x = (gen_rnd_number & 0x3E) / 2
             noun += EXTCHARS[x]
           end
+        return out.join.gsub(/\s+/, ' ').gsub(/\s+\./, '.') if c.nil?
           out << noun.capitalize
         end
       end
