@@ -215,11 +215,7 @@ describe EliteUniverse::Planet do
       [
         'Leleer',
         'Orteve',
-        'Aanbiat',
-        'Tibecea',
-        'Gelegeus',
-        'Edreor',
-        'Beenri'
+        'Edreor'
       ]
     }
 

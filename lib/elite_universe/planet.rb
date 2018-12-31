@@ -131,7 +131,6 @@ module EliteUniverse
           out << name.capitalize
         when "\u00B1"
           out << name.capitalize[0..-2]
-          # Fix? include 'a' in the list
           out << name[-1] if !%w(a e i o u).include? name[-1]
           out << 'ian'
         when "\u00B2"
@@ -141,7 +140,6 @@ module EliteUniverse
             x1 = gen_rnd_number
             x2 = x1 & 0x3E
             x = x2 / 2
-            #x = (gen_rnd_number & 0x3E) / 2
             noun += EXTCHARS[x]
           end
         return out.join.gsub(/\s+/, ' ').gsub(/\s+\./, '.') if c.nil?
