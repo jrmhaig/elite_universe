@@ -162,13 +162,7 @@ describe EliteUniverse::Planet do
 
   describe '#description' do
     let(:first) { EliteUniverse::Planet.new(23114, 584, 46931) }
-    let(:buggy) {
-      [
-        'Leleer',
-        'Orteve',
-        'Edreor'
-      ]
-    }
+    let(:buggy) { [ 'Leleer', 'Orteve', 'Edreor' ] }
 
     it 'gets the descriptions of galaxy one planets correct' do
       planet = first
