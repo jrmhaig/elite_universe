@@ -132,7 +132,7 @@ module EliteUniverse
         when "\u00B1"
           out << name.capitalize[0..-2]
           # Fix? include 'a' in the list
-          out << name[-1] if !%w(a e i o).include? name[-1]
+          out << name[-1] if !%w(a e i o u).include? name[-1]
           out << 'ian'
         when "\u00B2"
           len = gen_rnd_number & 3

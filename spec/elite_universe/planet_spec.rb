@@ -213,8 +213,13 @@ describe EliteUniverse::Planet do
     let(:first) { EliteUniverse::Planet.new(23114, 584, 46931) }
     let(:buggy) {
       [
-        'Leleer', 'Orteve', 'Aanbiat', 'Tibecea', 'Gelegeus', 'Edreor',
-        'Beenri', 'Cetiisqu'
+        'Leleer',
+        'Orteve',
+        'Aanbiat',
+        'Tibecea',
+        'Gelegeus',
+        'Edreor',
+        'Beenri'
       ]
     }
 
