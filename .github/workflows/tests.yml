@@ -12,5 +12,8 @@ jobs:
       with:
         ruby-version: 2.6.x
 
+    - name: Bundle
+      run: bundle install
+
     - name: RSpec
-      uses: skx/github-action-tester@master
+      run: bundle exec rspec
