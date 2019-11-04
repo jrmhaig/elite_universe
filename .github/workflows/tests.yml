@@ -1,0 +1,29 @@
+name: RSpec Tests
+
+on:
+  pull_request:
+    - 'master'
+  push:
+    - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v1
+
+  - name: Set up Ruby 2.6
+    users: actions/setup-ruby@v1
+    with:
+      ruby-version: 2.6.x
+
+  - name: Bundle
+    env:
+      RAILS_ENV: test
+    run: bundle install
+
+  - name: Run tests
+    env:
+      RAIL_ENV: test
+    run: bundle exec rspec
