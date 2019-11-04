@@ -1,25 +1,10 @@
-name: RSpec Tests
-
 on: push
-
+name: Run tests on Master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-  steps:
-  - uses: actions/checkout@v1
-
-  - name: Set up Ruby 2.6
-    users: actions/setup-ruby@v1
-    with:
-      ruby-version: 2.6.x
-
-  - name: Bundle
-    env:
-      RAILS_ENV: test
-    run: bundle install
-
-  - name: Run tests
-    env:
-      RAIL_ENV: test
-    run: bundle exec rspec
+  test:
+    name: Run tests
+    run-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: RSpec
+      uses: skx/github-action-tester@master
