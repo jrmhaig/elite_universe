@@ -1,19 +1,42 @@
 on: push
 name: Run tests on Master
 jobs:
-  test:
-    name: Run tests
+  ruby26:
+    name: Run tests on Ruby 2.6
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-
     - name: Bundle
       run: bundle install
-
+    - name: RSpec
+      run: bundle exec rspec
+  ruby25:
+    name: Run tests on Ruby 2.5
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Ruby 2.5
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.5.x
+    - name: Bundle
+      run: bundle install
+    - name: RSpec
+      run: bundle exec rspec
+  ruby24:
+    name: Run tests on Ruby 2.4
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Ruby 2.4
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.4.x
+    - name: Bundle
+      run: bundle install
     - name: RSpec
       run: bundle exec rspec
