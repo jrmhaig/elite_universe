@@ -1,10 +1,6 @@
 name: RSpec Tests
 
-on:
-  pull_request:
-    - 'master'
-  push:
-    - 'master'
+on: push
 
 jobs:
   build:
