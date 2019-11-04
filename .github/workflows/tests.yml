@@ -23,6 +23,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.5.x
+    - name: Install bundler
+      run: gem install bundle
     - name: Bundle
       run: bundle install
     - name: RSpec
@@ -36,6 +38,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.4.x
+    - name: Install bundler
+      run: gem install bundle
     - name: Bundle
       run: bundle install
     - name: RSpec
