@@ -1,17 +1,15 @@
 on: push
 name: Run tests on Master
 jobs:
-  ruby25:
-    name: Run tests on Ruby 2.5
+  ruby26:
+    name: Run tests on Ruby 3.0
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Set up Ruby 2.5
+    - name: Set up Ruby 3.0
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.5.x
-    - name: Install bundler
-      run: gem install bundler
+        ruby-version: 3.0.x
     - name: Bundle
       run: bundle install
     - name: RSpec
