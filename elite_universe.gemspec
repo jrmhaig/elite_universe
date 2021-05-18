@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "elite_universe"
   s.version     = EliteUniverse::VERSION
   s.authors     = ["Joe Haig"]
-  s.email       = ["joe.haig@bbc.co.uk"]
+  s.email       = ["joseph.haig@gmail.com"]
   s.homepage    = "https://github.com/jrmhaig/elite_universe"
   s.summary     = "Elite Universe"
   s.description = "Implementation of the Acornsoft Elite planet generator algorithm."
