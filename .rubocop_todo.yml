@@ -6,26 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Configuration parameters: EnforcedStyle, AllowedGems.
-# SupportedStyles: Gemfile, gems.rb, gemspec
-Gemspec/DevelopmentDependencies:
-  Exclude:
-    - 'elite_universe.gemspec'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Severity.
-Gemspec/RequireMFA:
-  Exclude:
-    - 'elite_universe.gemspec'
-
-# Offense count: 1
-# Configuration parameters: Severity.
-Gemspec/RequiredRubyVersion:
-  Exclude:
-    - 'elite_universe.gemspec'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.
@@ -156,7 +136,6 @@ Style/Documentation:
 # This cop supports safe autocorrection (--autocorrect).
 Style/ExpandPathArguments:
   Exclude:
-    - 'elite_universe.gemspec'
     - 'spec/spec_helper.rb'
 
 # Offense count: 8
@@ -167,7 +146,6 @@ Style/FrozenStringLiteralComment:
   Exclude:
     - '**/*.arb'
     - 'Gemfile'
-    - 'elite_universe.gemspec'
     - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
     - 'lib/elite_universe/version.rb'
@@ -219,21 +197,12 @@ Style/RedundantSelf:
   Exclude:
     - 'lib/elite_universe/galaxy.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: RequireEnglish, EnforcedStyle.
-# SupportedStyles: use_perl_names, use_english_names, use_builtin_english_names
-Style/SpecialGlobalVars:
-  Exclude:
-    - 'elite_universe.gemspec'
-
 # Offense count: 12
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
   Exclude:
-    - 'elite_universe.gemspec'
     - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/version.rb'
 
