@@ -29,37 +29,7 @@ Style/Documentation:
     - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
 
-# Offense count: 8
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - '**/*.arb'
-    - 'Gemfile'
-
 # Offense count: 1
 Style/MultilineBlockChain:
   Exclude:
     - 'lib/elite_universe/planet.rb'
-
-# Offense count: 10
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Strict, AllowedNumbers, AllowedPatterns.
-Style/NumericLiterals:
-  MinDigits: 6
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle, AllowedMethods, AllowedPatterns.
-# SupportedStyles: predicate, comparison
-Style/NumericPredicate:
-  Exclude:
-    - 'spec/**/*'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  EnforcedStyle: brackets

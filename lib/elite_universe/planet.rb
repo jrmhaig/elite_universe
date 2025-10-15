@@ -3,15 +3,15 @@
 module EliteUniverse
   class Planet
     CHARS = '..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion'.scan(/../)
-    GOVS = [
-      'Anarchy',
-      'Feudal',
-      'Multi-Government',
-      'Dictatorship',
-      'Communist',
-      'Confederate',
-      'Democratic',
-      'Corporate'
+    GOVS = %w[
+      Anarchy
+      Feudal
+      Multi-Government
+      Dictatorship
+      Communist
+      Confederate
+      Democratic
+      Corporate
     ].freeze
 
     ECONS = [
@@ -71,7 +71,7 @@ module EliteUniverse
       [
         arr[1],
         arr[2],
-        (version_at_least?('2.4.0') ? arr.sum : arr.inject(:+)) % 65536
+        (version_at_least?('2.4.0') ? arr.sum : arr.inject(:+)) % 65_536
       ]
     end
 
