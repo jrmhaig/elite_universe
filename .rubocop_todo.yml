@@ -12,10 +12,6 @@ RSpec/ExampleLength:
   Max: 10
 
 # Offense count: 3
-RSpec/MultipleExpectations:
-  Max: 8
-
-# Offense count: 3
 # Configuration parameters: AllowSubject.
 RSpec/MultipleMemoizedHelpers:
   Max: 11

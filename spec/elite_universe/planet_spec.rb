@@ -140,15 +140,39 @@ describe EliteUniverse::Planet do
     it 'finds economy that is Poor Agricultural because of Anarchy' do
       expect(poor_agricultural_anarchy.economy).to eq 'Poor Agricultural'
     end
+  end
 
-    describe '#location' do
-      it 'finds the correct location of a planet' do
-        expect(tibedied.location).to eq [2, 90]
-        expect(tibedied.next.location).to eq [152, 205]
-        expect(tibedied.next.next.location).to eq [77, 243]
-        expect(tibedied.next.next.next.location).to eq [83, 208]
-        expect(lave.location).to eq [20, 173]
-      end
+  describe '#location' do
+    subject { planet.location }
+
+    context 'with tibedied' do
+      let(:planet) { tibedied }
+
+      it { is_expected.to eq [2, 90] }
+    end
+
+    context 'with the planet one on from tibedied' do
+      let(:planet) { tibedied.next }
+
+      it { is_expected.to eq [152, 205] }
+    end
+
+    context 'with the planet two on from tibedied' do
+      let(:planet) { tibedied.next.next }
+
+      it { is_expected.to eq [77, 243] }
+    end
+
+    context 'with the planet three on from tibedied' do
+      let(:planet) { tibedied.next.next.next }
+
+      it { is_expected.to eq [83, 208] }
+    end
+
+    context 'with lave' do
+      let(:planet) { lave }
+
+      it { is_expected.to eq [20, 173] }
     end
   end
 
