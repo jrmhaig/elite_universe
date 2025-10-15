@@ -1,30 +1,33 @@
+# frozen_string_literal: true
+
 require 'elite_universe/planet'
 
 module EliteUniverse
   class Galaxy
     include Enumerable
 
-    def initialize a, b, c
-      @initial_planet = Planet.new(a, b, c)
+    def initialize(first, second, third)
+      @initial_planet = Planet.new(first, second, third)
     end
 
-    def each &block
-      256.times.inject(@initial_planet) do |p|
+    def each(&block)
+      p = @initial_planet
+      256.times do
         block.call(p)
-        p.next
+        p = p.next
       end
     end
 
     def planets
-      puts "DEPRECATED"
-      puts "In place of `galaxy.planets[n]` use `galaxy[n]`"
-      self.map { |p| p }
+      puts 'DEPRECATED'
+      puts 'In place of `galaxy.planets[n]` use `galaxy[n]`'
+      map { |p| p }
     end
 
-    def [] *args
+    def [](*)
       255.times
-        .lazy
-        .inject([@initial_planet]) { |ps| ps + [ps[-1].next] }[*args]
+         .lazy
+         .inject([@initial_planet]) { |ps, _| ps + [ps[-1].next] }[*]
     end
   end
 end

@@ -6,23 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'lib/elite_universe/galaxy.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Exclude:
-    - 'spec/galaxy_spec.rb'
-
 # Offense count: 12
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
@@ -51,7 +34,6 @@ Lint/AmbiguousOperator:
 # Configuration parameters: Methods.
 Lint/UnexpectedBlockArity:
   Exclude:
-    - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
 
 # Offense count: 1
@@ -65,7 +47,6 @@ Lint/UselessAssignment:
 # AllowedNames: as, at, by, cc, db, id, if, in, io, ip, of, on, os, pp, to
 Naming/MethodParameterName:
   Exclude:
-    - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
 
 # Offense count: 1
@@ -82,7 +63,6 @@ Naming/PredicateMethod:
 # SupportedStyles: described_class, explicit
 RSpec/DescribedClass:
   Exclude:
-    - 'spec/galaxy_spec.rb'
     - 'spec/planet_spec.rb'
 
 # Offense count: 3
@@ -106,16 +86,6 @@ RSpec/SpecFilePathFormat:
     - '**/spec/routing/**/*'
     - 'spec/galaxy_spec.rb'
     - 'spec/planet_spec.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowOnlyRestArgument, UseAnonymousForwarding, RedundantRestArgumentNames, RedundantKeywordRestArgumentNames, RedundantBlockArgumentNames.
-# RedundantRestArgumentNames: args, arguments
-# RedundantKeywordRestArgumentNames: kwargs, options, opts
-# RedundantBlockArgumentNames: blk, block, proc
-Style/ArgumentsForwarding:
-  Exclude:
-    - 'lib/elite_universe/galaxy.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -146,10 +116,8 @@ Style/FrozenStringLiteralComment:
   Exclude:
     - '**/*.arb'
     - 'Gemfile'
-    - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
     - 'lib/elite_universe/version.rb'
-    - 'spec/galaxy_spec.rb'
     - 'spec/planet_spec.rb'
     - 'spec/spec_helper.rb'
 
@@ -159,7 +127,6 @@ Style/FrozenStringLiteralComment:
 # SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
 Style/MethodDefParentheses:
   Exclude:
-    - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/planet.rb'
 
 # Offense count: 1
@@ -191,28 +158,13 @@ Style/NumericPredicate:
     - 'spec/**/*'
     - 'lib/elite_universe/planet.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantSelf:
-  Exclude:
-    - 'lib/elite_universe/galaxy.rb'
-
 # Offense count: 12
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
   Exclude:
-    - 'lib/elite_universe/galaxy.rb'
     - 'lib/elite_universe/version.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowMethodsWithArguments, AllowedMethods, AllowedPatterns, AllowComments.
-# AllowedMethods: define_method
-Style/SymbolProc:
-  Exclude:
-    - 'spec/galaxy_spec.rb'
 
 # Offense count: 3
 # This cop supports safe autocorrection (--autocorrect).
@@ -221,7 +173,6 @@ Style/SymbolProc:
 Style/TrailingCommaInArrayLiteral:
   Exclude:
     - 'lib/elite_universe/planet.rb'
-    - 'spec/galaxy_spec.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).

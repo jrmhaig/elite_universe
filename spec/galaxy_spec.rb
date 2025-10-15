@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'elite_universe/galaxy'
 
 describe EliteUniverse::Galaxy do
-  let(:galaxy) { EliteUniverse::Galaxy.new(23114, 584, 46931) }
+  let(:galaxy) { described_class.new(23114, 584, 46931) }
 
   describe '#planets' do
     it 'gets a list of 256 planets' do
@@ -10,7 +12,7 @@ describe EliteUniverse::Galaxy do
     end
 
     it 'gets the first 8 planets' do
-      expect(galaxy.planets[0, 8].map{ |p| p.name }).to eq [
+      expect(galaxy.planets[0, 8].map(&:name)).to eq [
         'Tibedied',
         'Qube',
         'Leleer',
@@ -18,7 +20,7 @@ describe EliteUniverse::Galaxy do
         'Xequerin',
         'Tiraor',
         'Rabedira',
-        'Lave',
+        'Lave'
       ]
     end
   end
