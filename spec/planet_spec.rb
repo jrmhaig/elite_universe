@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'elite_universe/planet'
 
 describe EliteUniverse::Planet do
-  let(:tibedied) { EliteUniverse::Planet.new(23114, 584, 46931) }
-  let(:lave) { EliteUniverse::Planet.new(44344, 5276, 5405) }
+  let(:tibedied) { described_class.new(23114, 584, 46931) }
+  let(:lave) { described_class.new(44344, 5276, 5405) }
 
   describe '#name' do
     it 'gets the right name' do
@@ -18,7 +20,7 @@ describe EliteUniverse::Planet do
 
   describe '#next' do
     it 'generates a planet' do
-      expect(lave.next).to be_an EliteUniverse::Planet
+      expect(lave.next).to be_a described_class
     end
 
     it 'finds the next planet' do
@@ -33,7 +35,7 @@ describe EliteUniverse::Planet do
 
   describe '#government' do
     # Tibedied (#0) is Feudal
-    let(:feudal) { EliteUniverse::Planet.new(23114, 584, 46931) }
+    let(:feudal) { described_class.new(23114, 584, 46931) }
     # Qube (#1) is Corporate
     let(:corporate) { feudal.next }
     # Leleer (#2) is Dictatorship
@@ -85,7 +87,7 @@ describe EliteUniverse::Planet do
 
   describe '#economy' do
     # Tibedied (#0) is Poor Industrial
-    let(:poor_industrial) { EliteUniverse::Planet.new(23114, 584, 46931) }
+    let(:poor_industrial) { described_class.new(23114, 584, 46931) }
     # Qube (#1) is Rich Agricultural
     let(:rich_agricultural) { poor_industrial.next }
     # Leleer (#2) is Mainly Industrial
@@ -141,11 +143,11 @@ describe EliteUniverse::Planet do
 
     describe '#location' do
       it 'finds the correct location of a planet' do
-        expect(tibedied.location).to eq [ 2, 90 ]
-        expect(tibedied.next.location).to eq [ 152, 205 ]
-        expect(tibedied.next.next.location).to eq [ 77, 243 ]
-        expect(tibedied.next.next.next.location).to eq [ 83, 208 ]
-        expect(lave.location).to eq [ 20, 173 ]
+        expect(tibedied.location).to eq [2, 90]
+        expect(tibedied.next.location).to eq [152, 205]
+        expect(tibedied.next.next.location).to eq [77, 243]
+        expect(tibedied.next.next.next.location).to eq [83, 208]
+        expect(lave.location).to eq [20, 173]
       end
     end
   end

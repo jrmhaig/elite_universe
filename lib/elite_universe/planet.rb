@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EliteUniverse
   class Planet
     CHARS = '..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion'.scan(/../)
@@ -9,8 +11,8 @@ module EliteUniverse
       'Communist',
       'Confederate',
       'Democratic',
-      'Corporate',
-    ]
+      'Corporate'
+    ].freeze
 
     ECONS = [
       'Rich Industrial',
@@ -20,18 +22,18 @@ module EliteUniverse
       'Mainly Agricultural',
       'Rich Agricultural',
       'Average Agricultural',
-      'Poor Agricultural',
-    ]
+      'Poor Agricultural'
+    ].freeze
 
-    def initialize a, b, c
-      @w = [ a, b, c ]
+    def initialize(first, second, third)
+      @w = [first, second, third]
     end
 
     def name
-      (@w[0] & 64 == 0 ? 2 : 3).times.inject([@w]) do |vs|
+      (@w[0].nobits?(64) ? 2 : 3).times.inject([@w]) do |vs, _|
         vs << twist(vs[-1])
       end.inject('') do |name, v|
-        name += CHARS[(v[2] >> 8) & 31]
+        name + CHARS[(v[2] >> 8) & 31]
       end.tr('.', '').capitalize
     end
 
@@ -48,28 +50,28 @@ module EliteUniverse
     end
 
     def technology
-      ((@w[1] >> 8 ) & 3) +
+      ((@w[1] >> 8) & 3) +
         (econ_n ^ 7) +
         (gov_n >> 1) +
-        ((gov_n & 1) == 1 ? 2 : 1)
+        (gov_n.allbits?(1) ? 2 : 1)
     end
 
     def next
-      EliteUniverse::Planet.new *(twist twist twist twist @w)
+      EliteUniverse::Planet.new(*(twist twist twist twist @w))
     end
 
     private
 
-    def version_at_least version
+    def version_at_least?(version)
       # ... because I want to use new features if possible
       Gem::Version.new(RUBY_VERSION) >= Gem::Version.new(version)
     end
 
-    def twist arr
+    def twist(arr)
       [
         arr[1],
         arr[2],
-        (version_at_least('2.4.0') ? arr.sum : arr.inject(:+)) % 65536
+        (version_at_least?('2.4.0') ? arr.sum : arr.inject(:+)) % 65536
       ]
     end
 
