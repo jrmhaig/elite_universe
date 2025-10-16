@@ -12,16 +12,7 @@ describe EliteUniverse::Galaxy do
     end
 
     it 'gets the first 8 planets' do
-      expect(galaxy.planets[0, 8].map(&:name)).to eq %w[
-        Tibedied
-        Qube
-        Leleer
-        Biarge
-        Xequerin
-        Tiraor
-        Rabedira
-        Lave
-      ]
+      expect(galaxy.planets[0, 8].map(&:name)).to eq %w[Tibedied Qube Leleer Biarge Xequerin Tiraor Rabedira Lave]
     end
   end
 
