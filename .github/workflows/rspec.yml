@@ -1,0 +1,18 @@
+on: push
+name: Run RSpec tests
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['3.2', '3.3', '3.4', head]
+    steps:
+    - uses: actions/checkout@v5
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: RSpec
+      run: bundle exec rspec
