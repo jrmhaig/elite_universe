@@ -30,11 +30,9 @@ module EliteUniverse
     end
 
     def name
-      (@w[0].nobits?(64) ? 2 : 3).times.inject([@w]) do |vs, _|
-        vs << twist(vs[-1])
-      end.inject('') do |name, v|
-        name + CHARS[(v[2] >> 8) & 31]
-      end.tr('.', '').capitalize
+      (@w[0].nobits?(64) ? 2 : 3).times.inject([@w]) { |vs, _| vs << twist(vs[-1]) }
+                                 .inject('') { |name, v| name + CHARS[(v[2] >> 8) & 31] }
+                                 .tr('.', '').capitalize
     end
 
     def government
