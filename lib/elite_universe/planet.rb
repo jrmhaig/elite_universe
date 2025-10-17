@@ -60,17 +60,8 @@ module EliteUniverse
 
     private
 
-    def version_at_least?(version)
-      # ... because I want to use new features if possible
-      Gem::Version.new(RUBY_VERSION) >= Gem::Version.new(version)
-    end
-
     def twist(arr)
-      [
-        arr[1],
-        arr[2],
-        (version_at_least?('2.4.0') ? arr.sum : arr.inject(:+)) % 65_536
-      ]
+      [arr[1], arr[2], arr.sum % 65_536]
     end
 
     def gov_n
