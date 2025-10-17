@@ -35,41 +35,16 @@ module EliteUniverse
                                  .tr('.', '').capitalize
     end
 
-    def government
-      GOVS[gov_n]
-    end
-
-    def economy
-      ECONS[econ_n]
-    end
-
-    def location
-      [@w[1] >> 8, @w[0] >> 8]
-    end
-
-    def technology
-      ((@w[1] >> 8) & 3) +
-        (econ_n ^ 7) +
-        (gov_n >> 1) +
-        (gov_n.allbits?(1) ? 2 : 1)
-    end
-
-    def next
-      EliteUniverse::Planet.new(*(twist twist twist twist @w))
-    end
+    def government = GOVS[gov_n]
+    def economy = ECONS[econ_n]
+    def location = [@w[1] >> 8, @w[0] >> 8]
+    def technology = ((@w[1] >> 8) & 3) + (econ_n ^ 7) + (gov_n >> 1) + (gov_n.allbits?(1) ? 2 : 1)
+    def next = EliteUniverse::Planet.new(*(twist twist twist twist @w))
 
     private
 
-    def twist(arr)
-      [arr[1], arr[2], arr.sum % 65_536]
-    end
-
-    def gov_n
-      (@w[1] >> 3) & 7
-    end
-
-    def econ_n
-      ((@w[0] >> 8) & 7) | (gov_n <= 1 ? 2 : 0)
-    end
+    def twist(arr) = [arr[1], arr[2], arr.sum % 65_536]
+    def gov_n = (@w[1] >> 3) & 7
+    def econ_n = ((@w[0] >> 8) & 7) | (gov_n <= 1 ? 2 : 0)
   end
 end

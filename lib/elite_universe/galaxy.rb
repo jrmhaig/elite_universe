@@ -24,10 +24,6 @@ module EliteUniverse
       map { |p| p }
     end
 
-    def [](*)
-      255.times
-         .lazy
-         .inject([@initial_planet]) { |ps, _| ps + [ps[-1].next] }[*]
-    end
+    def [](*) = 255.times.lazy.inject([@initial_planet]) { |ps, _| ps + [ps[-1].next] }[*]
   end
 end
