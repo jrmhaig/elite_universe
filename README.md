@@ -28,12 +28,6 @@ of planet names in the galaxy can be generated with:
 galaxy.map(&:name)
 ```
 
-## Deprecated methods
-
-`galaxy.planets` will return an array of all instances of
-`EliteUniverse::Planet` in an `EliteUniverse::Galaxy`. This is deprecated.
-Instead of `galaxy.planets[i]` use `galaxy[i]`.
-
 ## License
 
 The Elite Universe gem is available to everyone under the terms of the MIT
