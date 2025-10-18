@@ -29,44 +29,43 @@ module EliteUniverse
       'Poor Agricultural'
     ].freeze
 
-    DESC_LIST = {
-      "\u0081" => ["fabled", "notable", "well known", "famous", "noted"],
-      "\u0082" => ["very", "mildly", "most", "reasonably", ""],
-      "\u0083" => ["ancient", "\u0095", "great", "vast", "pink"],
-      "\u0084" => ["\u009E \u009D plantations", "mountains", "\u009C", "\u0094 forests", "oceans"],
-      "\u0085" => ["shyness", "silliness", "mating traditions", "loathing of \u0086", "love for \u0086"],
-      "\u0086" => ["food blenders", "tourists", "poetry", "discos", "\u008E"],
-      "\u0087" => ["talking tree", "crab", "bat", "lobst", "\u00B2"],
-      "\u0088" => ["beset", "plagued", "ravaged", "cursed", "scourged"],
-      "\u0089" => ["\u0096 civil war", "\u009B \u0098 \u0099s", "a \u009B disease", "\u0096 earthquakes", "\u0096 solar activity"],
-      "\u008A" => ["its \u0083 \u0084", "the \u00B1 \u0098 \u0099","its inhabitants' \u009A \u0085", "\u00A1", "its \u008D \u008E"],
-      "\u008B" => ["juice", "brandy", "water", "brew", "gargle blasters"],
-      "\u008C" => ["\u00B2", "\u00B1 \u0099", "\u00B1 \u00B2", "\u00B1 \u009B", "\u009B \u00B2"],
-      "\u008D" => ["fabulous", "exotic", "hoopy", "unusual", "exciting"],
-      "\u008E" => ["cuisine", "night life", "casinos", "sit coms", " \u00A1 "],
-      "\u008F" => ["\u00B0", "The planet \u00B0", "The world \u00B0", "This planet", "This world"],
-      "\u0090" => ["n unremarkable", " boring", " dull", " tedious", " revolting"],
-      "\u0091" => ["planet", "world", "place", "little planet", "dump"],
-      "\u0092" => ["wasp", "moth", "grub", "ant", "\u00B2"],
-      "\u0093" => ["poet", "arts graduate", "yak", "snail", "slug"],
-      "\u0094" => ["tropical", "dense", "rain", "impenetrable", "exuberant"],
-      # Correct spelling of wierd
-      "\u0095" => ["funny", "weird", "unusual", "strange", "peculiar"],
-      "\u0096" => ["frequent", "occasional", "unpredictable", "dreadful", "deadly"],
-      "\u0097" => ["\u0082 \u0081 for \u008A", "\u0082 \u0081 for \u008A and \u008A", "\u0088 by \u0089", "\u0082 \u0081 for \u008A but \u0088 by \u0089","a\u0090 \u0091"],
-      "\u0098" => ["\u009B", "mountain", "edible", "tree", "spotted"],
-      "\u0099" => ["\u009F", "\u00A0", "\u0087oid", "\u0093", "\u0092"],
-      "\u009A" => ["ancient", "exceptional", "eccentric", "ingrained", "\u0095"],
-      "\u009B" => ["killer", "deadly", "evil", "lethal", "vicious"],
-      "\u009C" => ["parking meters", "dust clouds", "ice bergs", "rock formations", "volcanoes"],
-      "\u009D" => ["plant", "tulip", "banana", "corn", "\u00B2weed"],
-      "\u009E" => ["\u00B2", "\u00B1 \u00B2", "\u00B1 \u009B", "inhabitant", "\u00B1 \u00B2"],
-      "\u009F" => ["shrew", "beast", "bison", "snake", "wolf"],
-      "\u00A0" => ["leopard", "cat", "monkey", "goat", "fish"],
-      "\u00A1" => ["\u008C \u008B", "\u00B1 \u009F \u00A2","its \u008D \u00A0 \u00A2", "\u00A3 \u00A4", "\u008C \u008B"],
-      "\u00A2" => ["meat", "cutlet", "steak", "burgers", "soup"],
-      "\u00A3" => ["ice", "mud", "Zero-G", "vacuum", "\u00B1 ultra"],
-      "\u00A4" => ["hockey", "cricket", "karate", "polo", "tennis"]
+    DESC_PARTS = {
+      ':a:' => [':*:', 'the planet :*:', 'the world :*:', 'this planet', 'this world'],
+      ":b:" => [":c: :d: for :e:", ":c: :d: for :e: and :e:", ":f: by :g:", ":c: :d: for :e: but :f: by :g:","a:h: :i:"],
+      ":c:" => ["very", "mildly", "most", "reasonably", ""],
+      ":d:" => ["fabled", "notable", "well known", "famous", "noted"],
+      ":e:" => ["its :j: :k:", "the :+: :l: :m:","its inhabitants' :n: :o:", ":p:", "its :q: :r:"],
+      ":f:" => ["beset", "plagued", "ravaged", "cursed", "scourged"],
+      ":g:" => [":s: civil war", ":t: :l: :m:s", "a :t: disease", ":s: earthquakes", ":s: solar activity"],
+      ":h:" => ["n unremarkable", " boring", " dull", " tedious", " revolting"],
+      ":i:" => ["planet", "world", "place", "little planet", "dump"],
+      ":j:" => ["ancient", ":u:", "great", "vast", "pink"],
+      ":k:" => [":v: :w: plantations", "mountains", ":x:", ":y: forests", "oceans"],
+      ":l:" => [":t:", "mountain", "edible", "tree", "spotted"],
+      ":m:" => [":z:", ":1:", ":2:oid", ":3:", ":4:"],
+      ":n:" => ["ancient", "exceptional", "eccentric", "ingrained", ":u:"],
+      ":o:" => ["shyness", "silliness", "mating traditions", "loathing of :5:", "love for :5:"],
+      ":p:" => [":6: :7:", ":+: :z: :8:","its :q: :1: :8:", ":9: :0:", ":6: :7:"],
+      ":q:" => ["fabulous", "exotic", "hoopy", "unusual", "exciting"],
+      ":r:" => ["cuisine", "night life", "casinos", "sit coms", " :p: "],
+      ":s:" => ["frequent", "occasional", "unpredictable", "dreadful", "deadly"],
+      ":t:" => ["killer", "deadly", "evil", "lethal", "vicious"],
+      ":u:" => ["funny", "weird", "unusual", "strange", "peculiar"],
+      ":v:" => [":-:", ":+: :-:", ":+: :t:", "inhabitant", ":+: :-:"],
+      ":w:" => ["plant", "tulip", "banana", "corn", ":-:weed"],
+      ":x:" => ["parking meters", "dust clouds", "ice bergs", "rock formations", "volcanoes"],
+      ":y:" => ["tropical", "dense", "rain", "impenetrable", "exuberant"],
+      ":z:" => ["shrew", "beast", "bison", "snake", "wolf"],
+      ":1:" => ["leopard", "cat", "monkey", "goat", "fish"],
+      ":2:" => ["talking tree", "crab", "bat", "lobst", ":-:"],
+      ":3:" => ["poet", "arts graduate", "yak", "snail", "slug"],
+      ":4:" => ["wasp", "moth", "grub", "ant", ":-:"],
+      ":5:" => ["food blenders", "tourists", "poetry", "discos", ":r:"],
+      ":6:" => [":-:", ":+: :m:", ":+: :-:", ":+: :t:", ":t: :-:"],
+      ":7:" => ["juice", "brandy", "water", "brew", "gargle blasters"],
+      ":8:" => ["meat", "cutlet", "steak", "burgers", "soup"],
+      ":9:" => ["ice", "mud", "Zero-G", "vacuum", ":+: ultra"],
+      ":0:" => ["hockey", "cricket", "karate", "polo", "tennis"]
     }
 
     def initialize(first, second, third)
@@ -87,7 +86,8 @@ module EliteUniverse
 
     def description
       @gs = goatsoupseed
-      goatsoup "\u008F is \u0097."
+      gs = goatsoup(':a: is :b:').gsub(/ \s*$?/, ' ').gsub(/^\s*|\s*$/, '')
+      gs.slice(0, 1).capitalize + gs.slice(1..-1) + '.'
     end
 
     private
@@ -97,43 +97,15 @@ module EliteUniverse
     def econ_n = ((@w[0] >> 8) & 7) | (gov_n <= 1 ? 2 : 0)
 
     def goatsoup source
-      # Attempt to copy:
-      # https://github.com/jabbalaci/Elite/blob/master/pytxtelite/pytxtelite.txt
-      i = -1
-      out = []
-      while true
-        i += 1
-        c = source[i]
-        return out.join.gsub(/\s+/, ' ').gsub(/\s+\./, '.') if c.nil?
+      return source unless source.match(':')
 
-        oc = c.ord
-
-        if oc < 128
-          out << c
-        elsif oc <= 164
-          rnd = gen_rnd_number
-          num = oc
-
-          pos = 0
-          pos += 1 if rnd >= 51
-          pos += 1 if rnd >= 102
-          # Bug? Fix for Leleer
-          #pos += 1 if rnd >= (@w[0] == 62250 ? 151 : 153)
-          pos += 1 if rnd >= 153
-          pos += 1 if rnd >= 204
-          # Bug? Fix for Orteve: [9146, 16272, 39347]
-          #pos = 0 if @w[0] == 9146 && rnd >= 255
-          out << goatsoup(DESC_LIST[c][pos])
-        end
-
-        case c
-        when "\u00B0"
-          out << name.capitalize
-        when "\u00B1"
-          out << name.capitalize[0..-2]
-          out << name[-1] if !%w(a e i o u).include? name[-1]
-          out << 'ian'
-        when "\u00B2"
+      parts = source.split(/(:.:)/)
+      parts.map do |part|
+        if part == ':*:'
+          name.capitalize
+        elsif part == ':+:'
+          adjective.capitalize
+        elsif part == ':-:'
           len = gen_rnd_number & 3
           noun = ''
           (len+1).times do |i|
@@ -142,10 +114,13 @@ module EliteUniverse
             x = x2 / 2
             noun += EXTCHARS[x]
           end
-        return out.join.gsub(/\s+/, ' ').gsub(/\s+\./, '.') if c.nil?
-          out << noun.capitalize
+          noun.capitalize
+        elsif part.match(':')
+          goatsoup(DESC_PARTS[part][next_position])
+        else
+          part
         end
-      end
+      end.join('')
     end
 
     def goatsoupseed
@@ -155,6 +130,17 @@ module EliteUniverse
         @w[2] & 0xFF,
         @w[2] >> 8
       ]
+    end
+
+    def next_position
+      rnd = gen_rnd_number
+
+      pos = 0
+      pos += 1 if rnd >= 51
+      pos += 1 if rnd >= 102
+      pos += 1 if rnd >= 153
+      pos += 1 if rnd >= 204
+      pos
     end
 
     def gen_rnd_number
@@ -169,6 +155,14 @@ module EliteUniverse
       @gs[1] = a
       @gs[3] = x
       a
+    end
+
+    def adjective
+      [
+        name.capitalize[0..-2],
+        (name[-1] if !%w(a e i o u).include? name[-1]),
+        'ian'
+      ].join
     end
   end
 end
